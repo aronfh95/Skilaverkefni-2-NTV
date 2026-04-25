@@ -7,6 +7,36 @@
     <title>Skilaverkefni 2</title>
   </head>
   <body>
+    <header class="header">
+      <h1>Verkefnalisti / Todo list</h1>
+    </header>
+
+    <main class="countainer">
+      <h2>bæta við verkeni</h2>
+
+      <form id="taskForm">
+        <input
+          id="taskInput"
+          type="text"
+          placeholder="Skrifaðu nýtt verkeni...."
+          required
+        />
+        <button type="submit">Bæta við</button>
+      </form>
+
+      <h2>Verkefni</h2>
+
+      <ul id="taskList"></ul>
+
+      <div class="stats">
+        <p>Heildarfjöldi: <span id="totalCount">0</span></p>
+        <p>Lokin Verkefni: <span id="doneCount">0</span></p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Skilaverkefni 2</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
