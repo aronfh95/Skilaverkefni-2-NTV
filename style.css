@@ -4,68 +4,68 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #eef4f8;
+  background: #f1f1f1;
   margin: 0;
-  min-height: 100vh;
   color: #222;
 }
 
+.container {
+  max-width: 950px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
 .header {
+  background: linear-gradient(#c608f6, #0066f5);
+  padding: 55px 70px 50px;
   text-align: center;
-  padding: 30px 15px 10px;
 }
 
 .header h1 {
-  margin: 0;
-  color: #174a7c;
-}
-
-.container {
-  max-width: 650px;
-  margin: 25px auto;
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 18px 25px rgba(0, 0, 0, 0.12);
-  border: 1px solid #dce7ef;
-}
-
-h2 {
-  color: #174a7c;
-  margin-top: 0;
+  color: white;
+  font-size: 42px;
+  margin: 0 0 30px;
+  letter-spacing: 2px;
 }
 
 form {
   display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
+  gap: 30px;
 }
 
 input {
   flex: 1;
-  padding: 12px;
-  border: 1px solid #c8d6e0;
-  border-radius: 8px;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+}
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: bolder;
   font-size: 16px;
 }
 
-input:focus {
-  outline: none;
-  border-color: #174a7c;
+form button {
+  background: white;
+  color: #333;
+  padding: 0 30px;
+  border-radius: 6px;
 }
 
-button {
-  border: none;
-  border-radius: 8px;
-  padding: 10px 14px;
-  cursor: pointer;
-  background: #174a7c;
-  color: white;
-  font-size: 15px;
+.task-section {
+  padding: 28px 18px 35px;
 }
 
-button:hover {
-  background: #0f3458;
+.task-section h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 24px;
 }
 
 ul {
@@ -75,42 +75,50 @@ ul {
 }
 
 li {
-  background: #f7fafc;
-  border: 1px solid #dce7ef;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 10px;
+  background: rgb(216, 216, 216);
+  margin-bottom: 16px;
+  padding: 18px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+  border-radius: 10px;
 }
 
 li div {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
 .done span {
   text-decoration: line-through;
-  color: #777;
+  color: rgb(119, 119, 119);
+  font-size: italic;
+}
+
+li button:nth-child(1) {
+  color: rgb(0, 255, 38);
+}
+
+li button:nth-child(2) {
+  color: rgb(14, 163, 255);
+}
+
+li button:nth-child(3) {
+  color: rgb(255, 27, 27);
 }
 
 .stats {
-  margin-top: 25px;
-  padding: 15px;
-  background: #eef4f8;
-  border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-}
-
-.stats p {
-  margin: 0;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
   font-weight: bold;
 }
 
 .footer {
   text-align: center;
-  color: #555;
-  padding: 20px;
+  padding: 15px;
+  color: #777;
 }

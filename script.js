@@ -1,7 +1,7 @@
 let tasks = [
-  { id: 1, title: "Klára HTML", done: false },
+  { id: 1, title: "Klára HTML", done: true },
   { id: 2, title: "Klára CSS", done: false },
-  { id: 3, title: "Klára JS", done: false },
+  { id: 3, title: "Klára JS", done: true },
 ];
 
 const tasklist = document.getElementById("taskList");
@@ -21,10 +21,11 @@ function renderTask() {
       li.classList.add("done");
     }
 
-    li.innerHTML = `<span>${task.title}<span/>
+    li.innerHTML = `<span>${task.title}</span>
     <div>
-    <button onclick="toggleTask(${task.id})">√</button>
-    <button onclick="deleteTask(${task.id})">X</button>
+    <button onclick="toggleTask(${task.id})">✓</button>
+    <button onclick="editTask(${task.id})">Breyta</button>
+    <button onclick="deleteTask(${task.id})">x</button>
     `;
 
     tasklist.appendChild(li);
@@ -36,15 +37,24 @@ function renderTask() {
 taskForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const newTask = {
-    id: Date.now(),
-    title: taskInput.value,
-    done: false,
-  };
+  if (editId !== null) {
+    for (let task of tasks) {
+      if (task.id === editId) {
+        task.title = taskInput.value;
+      }
+    }
 
-  tasks.push(newTask);
+    editId = null;
+    taskForm.querySelector("button").textContent = "BÆTA VIÐ";
+  } else {
+    const newTask = {
+      id: Date.now(),
+      title: taskInput.value,
+      done: false,
+    };
+    tasks.push(newTask);
+  }
   taskInput.value = "";
-
   renderTask();
 });
 
@@ -57,6 +67,17 @@ function toggleTask(id) {
   renderTask();
 }
 
+function editTask(id) {
+  for (let task of tasks) {
+    if (task.id === id) {
+      taskInput.value = task.title;
+      editId = id;
+      taskForm.querySelector("button").textContent = "VISTA";
+    }
+  }
+  taskInput.focus();
+}
+
 function deleteTask(id) {
   tasks = tasks.filter((task) => task.id !== id);
   renderTask();
@@ -66,7 +87,7 @@ function updateStats() {
   totalCount.textContent = tasks.length;
 
   let done = 0;
-  for (let task of taskes) {
+  for (let task of tasks) {
     if (task.done) {
       done++;
     }
