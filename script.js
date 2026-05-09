@@ -4,6 +4,8 @@ let tasks = [
   { id: 3, title: "Klára JS", done: true },
 ];
 
+let editId = null;
+
 const tasklist = document.getElementById("taskList");
 const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
@@ -21,11 +23,13 @@ function renderTask() {
       li.classList.add("done");
     }
 
-    li.innerHTML = `<span>${task.title}</span>
+    li.innerHTML = `
+    <span>${task.title}</span>
     <div>
-    <button onclick="toggleTask(${task.id})">✓</button>
-    <button onclick="editTask(${task.id})">Breyta</button>
-    <button onclick="deleteTask(${task.id})">x</button>
+      <button onclick="toggleTask(${task.id})">✓</button>
+      <button onclick="editTask(${task.id})">Breyta</button>
+      <button onclick="deleteTask(${task.id})">x</button>
+    </div>
     `;
 
     tasklist.appendChild(li);
